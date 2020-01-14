@@ -5,7 +5,7 @@ from cms.utils.apphook_reload import reload_urlconf
 from django.conf import settings
 try:
     from django.core.urlresolvers import set_urlconf
-except ImportError:
+except ModuleNotFoundError:
     from django.urls import set_urlconf
 from django.utils.cache import patch_vary_headers
 from django.utils.deprecation import MiddlewareMixin
