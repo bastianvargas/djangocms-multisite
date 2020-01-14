@@ -3,7 +3,10 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 from cms.utils.apphook_reload import reload_urlconf
 from django.conf import settings
-from django.core.urlresolvers import set_urlconf
+try:
+    from django.core.urlresolvers import set_urlconf
+except ImportError:
+    from django.urls import set_urlconf
 from django.utils.cache import patch_vary_headers
 from django.utils.deprecation import MiddlewareMixin
 from django.utils.six.moves import urllib_parse as urlparse
